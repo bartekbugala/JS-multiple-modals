@@ -4,10 +4,11 @@
 	
 	Teraz wystarczy napisać funkcję otwierającą modal:
     */
+   // Przeniosłem tu z powodu "DRY"
+   var modals = document.querySelectorAll('.modal');
 
     var showModal = function (event) {
         event.preventDefault();
-        var modals = document.querySelectorAll('.modal');
         for (var i = 0; i < modalLinks.length; i++) {
             modals[i].classList.remove('show');
         }
@@ -42,8 +43,6 @@
     document.querySelector('#modal-overlay').addEventListener('click', hideModal);
 
     // Musimy jednak pamiętać, aby zablokować propagację kliknięć z samego modala - inaczej każde kliknięcie wewnątrz modala również zamykałoby go. 
-
-    var modals = document.querySelectorAll('.modal');
 
     for (var i = 0; i < modals.length; i++) {
         modals[i].addEventListener('click', function (event) {
