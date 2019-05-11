@@ -7,9 +7,12 @@
 
     var showModal = function (event) {
         event.preventDefault();
+        var modals = document.querySelectorAll('.modal');
+        for (var i = 0; i < modalLinks.length; i++) {
+            modals[i].classList.remove('show');
+        }
         document.querySelector('#modal-overlay').classList.add('show');
         document.querySelector(this.getAttribute('href')).classList.add('show');
-
     };
 
     // Mimo, że obecnie mamy tylko jeden link, stosujemy kod dla wielu linków. W ten sposób nie będzie trzeba go zmieniać, kiedy zechcemy mieć więcej linków lub guzików otwierających modale
@@ -26,10 +29,6 @@
     var hideModal = function (event) {
         event.preventDefault();
         document.querySelector('#modal-overlay').classList.remove('show');
-        var modals = document.querySelectorAll('.modal');
-        for (var i = 0; i < modalLinks.length; i++) {
-            modals[i].classList.remove('show');
-        }
     };
 
     var closeButtons = document.querySelectorAll('.modal .close');
